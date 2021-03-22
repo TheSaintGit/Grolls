@@ -32,8 +32,11 @@ public class StepDefinitions {
     @Given("I have also selected {int} T-shirt")
     public void i_have_selected_t_shirt_on_grolls(Integer int1)  throws InterruptedException{
         Thread.sleep(2000);  // Let the user actually see something!
-        WebElement plusbut = driver.findElement(By.xpath("//*[@id=\"product_addtocart_form\"]/div[2]/div/div/div[1]/div/div/span[2]/img"));
-        plusbut.click();
+        WebElement plusbut = driver.findElement(By.cssSelector("input.input-text.qty"));
+        plusbut.clear();
+        plusbut.sendKeys(String.valueOf(int1));
+
+        //plusbut.click();
 
     }
 
